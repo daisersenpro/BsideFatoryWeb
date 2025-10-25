@@ -1,5 +1,8 @@
 # BsideFactory Web
 
+<img width="1321" height="721" alt="Web-BsideFactory" src="https://github.com/user-attachments/assets/2c000281-02b7-4a76-9c09-1a5bde1e3ae0" />
+
+
 Sitio web para BsideFactory — creado con React y Tailwind CSS.
 
 Descripción corta:
