@@ -1,12 +1,14 @@
-import { Music, Instagram, Youtube, Twitter, ArrowRight } from 'lucide-react';
+import { Music, Instagram, Youtube, ArrowRight } from 'lucide-react';
 
 const Artists = () => {
+  const placeholderImage = 'https://i.postimg.cc/D0ftG3JL/Pronto.png';
+
   const artists = [
     {
       name: 'Mario Corleone',
       role: 'Fundador & Productor',
       description: 'Pionero del Hip Hop chileno, fundador de Bside Factory en 1996. Productor musical y visionario que ha dado forma a la escena del rap en La Florida.',
-      image: 'https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',
@@ -17,7 +19,7 @@ const Artists = () => {
       name: 'César Alonso "Musicario"',
       role: 'MC & Letrista',
       description: 'Primer artista en incorporarse al sello. Co-fundador de Templo Lado B, conocido por su flow único y letras profundas que marcan la identidad del Hip Hop nacional.',
-      image: 'https://images.pexels.com/photos/1762578/pexels-photo-1762578.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',
@@ -28,7 +30,7 @@ const Artists = () => {
       name: 'Santa Kela',
       role: 'MC',
       description: 'Miembro de Templo Lado B, destacado por su energía en el escenario y su habilidad para conectar con la audiencia a través de letras que reflejan la realidad urbana.',
-      image: 'https://images.pexels.com/photos/1918290/pexels-photo-1918290.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',
@@ -39,7 +41,7 @@ const Artists = () => {
       name: 'Mr. Cleri',
       role: 'MC & Beatmaker',
       description: 'Integrante de Templo Lado B. Especializado en la creación de beats innovadores y letras que fusionan la cultura Hip Hop con la identidad chilena.',
-      image: 'https://images.pexels.com/photos/1619654/pexels-photo-1619654.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',
@@ -50,7 +52,7 @@ const Artists = () => {
       name: 'Escuadra Copihuana',
       role: 'Crew',
       description: 'Colectivo colaborador del sello, reconocido en la escena underground por sus presentaciones en vivo y su compromiso con el Hip Hop consciente.',
-      image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',
@@ -61,7 +63,7 @@ const Artists = () => {
       name: 'Dalonso',
       role: 'MC',
       description: 'Artista emergente del sello, destacado por su estilo versátil y capacidad para adaptarse a diferentes ritmos manteniendo la esencia del rap chileno.',
-      image: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: placeholderImage,
       social: {
         instagram: '#',
         youtube: '#',

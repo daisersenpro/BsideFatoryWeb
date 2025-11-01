@@ -91,26 +91,13 @@ export const discography = [
     image: 'https://i.postimg.cc/fb4JZB1h/negro-kal.jpg',
   },
   {
-    year: '2008',
-    title: 'GANGSTA FAMILIA "GOLPE MUNDIAL"',
-    type: 'Álbum',
-    tracks: ['Cada paso', 'Pa`rriba', 'Dando Cara', 'Amarillos', 'Amor del Barrio', 'Estilo pandillero', 'Flores por espinas', 'Todo o nada', 'La ganancia de la calle', 'Latino papá', 'Latinos gangstas', 'Mi nena querida', 'Respeto en la calle', 'Todo bien'],
-    image: 'https://images.pexels.com/photos/1619654/pexels-photo-1619654.jpeg?auto=compress&cs=tinysrgb&w=400',
+    year: '2006',
+    title: '2006 DILO MAXI SINGLE "UNA NUEVA MENTALIDAD"',
+    type: 'Maxi Single',
+    tracks: ['Una nueva mentalidad'],
+    image: 'https://i.postimg.cc/x1mLKJSR/Dilo-Maxi.jpg',
   },
-  {
-    year: '2010',
-    title: 'BSIDE FACTORY "2010"',
-    type: 'Álbum',
-    tracks: ['Intro', 'Baila para mi', 'Esto es Bside', 'Seguimos Vigentes', 'Regresamos para coronar', 'La gran nave', 'Mundo de raza', 'Fiebre de piel', 'Morena latina', 'Interesadas', 'Confesiones', 'Soy parte de la historia', 'Amame odiame', 'Te haré mover (B.A.I.L.A.)', 'Aces Musicales', 'No te imaginas', 'Delirio de estrellas', 'Outro'],
-    image: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400',
-  },
-  {
-    year: '2012',
-    title: 'GANGSTA FAMILIA "2012"',
-    type: 'Álbum',
-    tracks: [],
-    image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=400',
-  },
+  // Example/demo entries removed as requested (2008, 2010, 2012)
 ];
 
 export default discography;
