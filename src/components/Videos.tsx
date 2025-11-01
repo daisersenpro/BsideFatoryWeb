@@ -3,10 +3,10 @@ import { Play, ArrowRight } from 'lucide-react';
 const Videos = () => {
   const videos = [
     {
-      title: 'Templo Lado B - En Vivo La Florida 1997',
-      description: 'Presentación histórica que marcó el inicio de la era dorada del Hip Hop en La Florida.',
-      youtubeId: 'dQw4w9WgXcQ',
-      views: '150K',
+      title: 'GANGSTA FAMILIA - ESTILO PANDILLERO',
+      description: 'Video oficial: Estilo Pandillero - GANGSTA FAMILIA.',
+      youtubeId: 'rQfctPAyX4c',
+      views: 'Desconocidas',
     },
     {
       title: 'Mario Corleone - Video oficial',
