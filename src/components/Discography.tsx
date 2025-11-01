@@ -1,64 +1,34 @@
 import { Disc3, ArrowRight } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import discography from '../data/discography';
 
-const Discography = () => {
-  const discography = [
-    {
-      year: '1996',
-      title: 'TEMPLO LADO B MIXTAPE',
-      type: 'Mixtape',
-      tracks: ['Rimas & Imaginas', 'La crypta más estricta', 'Calibre lado b', 'mi vida es un erial (rima Gustavo A. Bècquer)'],
-      image: 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '1997',
-      title: 'TEMPLO LADO B DEMO 1 "RAPERO SOY"',
-      type: 'Demo',
-      tracks: ['Tlb en tu mente', 'El tonto no fuma, mi planta', 'No me toques', 'Rapero soy', 'Parezco solo un titere', 'asesinos al azar'],
-      image: 'https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '1998',
-      title: 'TEMPLO LADO B DEMO 2 "BIENVENIDO AL PACTO"',
-      type: 'Demo',
-      tracks: ['Bienvenido al pacto', 'De la antigua Ckn', 'Fuma, canta y vuela', 'Larraguibel sonido', 'Dímelo ¿donde están?', 'Palabras densas'],
-      image: 'https://images.pexels.com/photos/1918290/pexels-photo-1918290.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '2001',
-      title: 'TEMPLO ESCOP ÁLBUM "CREE EN ESTO"',
-      type: 'Álbum',
-      tracks: ['Intro', 'El mando', 'El poder y el corte', 'La amenaza', 'Interludio', 'En negocios Feat. Zaturno', 'Palabras densas', 'La gente del estado', 'El huracán Orientycal Feat. Sammy houston', 'La mama show', 'Un país en mal estado', 'Todo se invierte', 'Estilo copihuano Tlb', 'Cree en esto'],
-      image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '2003',
-      title: 'TEMPLO ESCOP "CAPITULO FINAL"',
-      type: 'Álbum',
-      tracks: ['Intro', 'Amigos falsos', 'El boomerang malvado', 'Con sentimiento', 'El escuadrón', 'Representativo Feat. Subliminal', 'No hay remedio ni cura Feat. Tapia Terapia', 'Como me divierto', 'La fumaton Feat. NegroKal', 'Quien da mas', 'Descanso eterno', 'Enseñanza de vida', 'Te enseño', 'Recuerdos', 'Más fuerte que nunca', 'Ya basta Feat. Tapia terapia, Almas en pena'],
-      image: 'https://images.pexels.com/photos/1762578/pexels-photo-1762578.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '2008',
-      title: 'GANGSTA FAMILIA "GOLPE MUNDIAL"',
-      type: 'Álbum',
-      tracks: ['Cada paso', 'Pa`rriba', 'Dando Cara', 'Amarillos', 'Amor del Barrio', 'Estilo pandillero', 'Flores por espinas', 'Todo o nada', 'La ganancia de la calle', 'Latino papá', 'Latinos gangstas', 'Mi nena querida', 'Respeto en la calle', 'Todo bien'],
-      image: 'https://images.pexels.com/photos/1619654/pexels-photo-1619654.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '2010',
-      title: 'BSIDE FACTORY "2010"',
-      type: 'Álbum',
-      tracks: ['Intro', 'Baila para mi', 'Esto es Bside', 'Seguimos Vigentes', 'Regresamos para coronar', 'La gran nave', 'Mundo de raza', 'Fiebre de piel', 'Morena latina', 'Interesadas', 'Confesiones', 'Soy parte de la historia', 'Amame odiame', 'Te haré mover (B.A.I.L.A.)', 'Aces Musicales', 'No te imaginas', 'Delirio de estrellas', 'Outro'],
-      image: 'https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-    {
-      year: '2012',
-      title: 'GANGSTA FAMILIA "2012"',
-      type: 'Álbum',
-      tracks: [],
-      image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=400',
-    },
-  ];
+type DiscographyProps = {
+  onNavigate?: (path: string) => void;
+};
+
+const Discography = ({ onNavigate }: DiscographyProps) => {
+  // Carousel shows multiple items per page (4 cards) and rotates by page
+  const itemsPerPage = 4;
+  // only include entries that have an image (skip empty placeholders)
+  // do NOT limit the number here so the carousel will show all albums in groups of 4
+  const slides = discography.filter((d) => !!d.image);
+  const AUTOPLAY_MS = 6000; // time to wait on each page (ms)
+  const TRANSITION_CLASS = 'transition-transform duration-500 ease-in-out';
+  const totalPages = Math.max(1, Math.ceil(slides.length / itemsPerPage));
+  const [page, setPage] = useState(0);
+  const autoplayRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    autoplayRef.current = window.setInterval(() => {
+      setPage((p) => (p + 1) % totalPages);
+    }, AUTOPLAY_MS);
+    return () => {
+      if (autoplayRef.current) window.clearInterval(autoplayRef.current);
+    };
+  }, [totalPages]);
+
+  const pause = () => { if (autoplayRef.current) { window.clearInterval(autoplayRef.current); autoplayRef.current = null; } };
+  const resume = () => { if (!autoplayRef.current) { autoplayRef.current = window.setInterval(() => setPage((p) => (p + 1) % totalPages), AUTOPLAY_MS); } };
 
   return (
     <section id="discografia" className="py-20 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900">
@@ -73,42 +43,50 @@ const Discography = () => {
           28 años de historia musical documentada
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {discography.slice(0, 4).map((album, index) => (
-            <div
-              key={index}
-              className="group bg-sky-800 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-sky-600"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={album.image}
-                  alt={album.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-sky-600 text-white px-3 py-1 rounded-full font-bold text-xs">
-                  {album.type}
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="bg-sky-600 text-white px-3 py-1 rounded-full font-bold text-sm">
-                    {album.year}
-                  </span>
-                </div>
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-bold text-white mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">
-                  {album.title}
-                </h3>
-                <p className="text-xs text-gray-400 mb-3">
-                  {album.tracks.length} tracks
-                </p>
-                <button className="w-full bg-sky-600 text-white py-2 rounded-lg font-bold text-sm hover:bg-sky-700 transition-colors flex items-center justify-center gap-2">
-                  <Disc3 size={16} />
-                  Ver Álbum
-                </button>
+        <div className="relative mb-12" onMouseEnter={pause} onMouseLeave={resume}>
+          <div className="overflow-hidden rounded-2xl border-2 border-sky-600 shadow-2xl">
+            <div className="w-full">
+        {/* translateX percent is relative to this container's width (totalPages * 100%).
+          To move exactly one viewport-width per page we translate by
+          (page * 100 / totalPages)%. */}
+        <div className={`flex ${TRANSITION_CLASS}`} style={{ transform: `translateX(-${(page * 100) / totalPages}%)`, width: `${totalPages * 100}%` }}>
+                {Array.from({ length: totalPages }).map((_, p) => {
+                  const start = p * itemsPerPage;
+                  const pageItems = slides.slice(start, start + itemsPerPage);
+                  return (
+                    <div key={p} className="w-full" style={{ width: `${100 / totalPages}%` }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+                        {pageItems.map((album, i) => (
+                          <div key={i} className="group bg-sky-800 rounded-xl overflow-hidden shadow-lg border border-sky-600">
+                            <div className="relative h-48 overflow-hidden">
+                              <img src={album.image} alt={album.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
+                              <div className="absolute top-3 right-3 bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-xs">{album.type}</div>
+                              <div className="absolute bottom-3 left-3"><span className="bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-sm">{album.year}</span></div>
+                            </div>
+                            <div className="p-4">
+                              <h3 className="text-sm font-bold text-white mb-1 group-hover:text-sky-400 transition-colors line-clamp-2">{album.title}</h3>
+                              <p className="text-xs text-gray-400 mb-2">{album.tracks.length > 0 ? `${album.tracks.length} tracks` : 'Single'}</p>
+                              <div className="flex gap-2">
+                                <button className="flex-1 bg-sky-600 text-white py-2 rounded font-bold flex items-center justify-center gap-2"><Disc3 /> Ver Álbum</button>
+                                <button className="flex-1 bg-white text-sky-600 py-2 rounded font-bold">Descargar</button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          ))}
+          </div>
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+            <button onClick={() => setPage((p) => (p - 1 + totalPages) % totalPages)} className="bg-white/20 backdrop-blur px-3 py-2 rounded-full">‹</button>
+          </div>
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+            <button onClick={() => setPage((p) => (p + 1) % totalPages)} className="bg-white/20 backdrop-blur px-3 py-2 rounded-full">›</button>
+          </div>
         </div>
 
         <div className="bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 p-1 rounded-3xl shadow-2xl mb-8">
@@ -160,13 +138,13 @@ const Discography = () => {
         </div>
 
         <div className="text-center">
-          <a
-            href="#discografia"
+          <button
+            onClick={() => onNavigate && onNavigate('/discografia-completa')}
             className="inline-flex items-center gap-2 bg-sky-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-sky-700 transform hover:scale-110 transition-all duration-300 shadow-xl"
           >
             Ver Discografía Completa
             <ArrowRight size={24} />
-          </a>
+          </button>
         </div>
       </div>
     </section>

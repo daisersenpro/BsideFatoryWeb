@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+type NavbarProps = {
+  onNavigate?: (path: string) => void;
+};
+
+const Navbar = ({ onNavigate }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,6 +31,31 @@ const Navbar = () => {
     { name: 'CONTACTO', href: '#contacto' },
   ];
 
+  const handleNav = (href: string) => {
+    if (href.startsWith('#')) {
+      const id = href.slice(1);
+      if (onNavigate) {
+        // navigate to home route then scroll to element
+        onNavigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          else window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 80);
+      } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else if (href.startsWith('/')) {
+      if (onNavigate) onNavigate(href);
+      else window.location.href = href;
+    } else {
+      // fallback
+      window.location.href = href;
+    }
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
@@ -36,7 +65,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <a href="#inicio" className="flex items-center transform hover:scale-105 transition-transform duration-300">
+            <a onClick={(e) => { e.preventDefault(); handleNav('/'); }} href="#inicio" className="flex items-center transform hover:scale-105 transition-transform duration-300">
               <img
                 src="https://i.postimg.cc/FHtf1DHz/BSIDE-WEB-PC-LOGO.png"
                 alt="Bside Factory Logo"
@@ -51,6 +80,7 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => { e.preventDefault(); handleNav(item.href); }}
                   className="text-red-600 font-bold italic text-sm hover:text-red-800 px-3 py-2 rounded-md hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
                   style={{
                     WebkitTextStroke: '1px white',
@@ -81,12 +111,12 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => { e.preventDefault(); handleNav(item.href); setIsOpen(false); }}
                 className="text-red-600 font-bold italic block px-3 py-2 rounded-md hover:bg-red-100 transition-all duration-300"
                 style={{
                   WebkitTextStroke: '1px white',
                   paintOrder: 'stroke fill',
                 }}
-                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
