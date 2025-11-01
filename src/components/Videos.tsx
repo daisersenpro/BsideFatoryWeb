@@ -9,15 +9,15 @@ const Videos = () => {
       views: '150K',
     },
     {
-      title: 'Mario Corleone - Documental: 25 Años de Bside Factory',
-      description: 'La historia completa del sello independiente más influyente del Hip Hop chileno.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'Mario Corleone - Video oficial',
+      description: 'Video agregado: Mario Corleone.',
+      youtubeId: 'B6XaObLhhJ0',
       views: '89K',
     },
     {
-      title: 'Making Of: Producción con Boss DR-5',
-      description: 'Detrás de cámaras de cómo se crearon los beats más emblemáticos del sello.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'Bside Factory - Scd Show',
+      description: 'Presentación en SCD: momento histórico del grupo.',
+      youtubeId: 'sHuykpjIlfo',
       views: '67K',
     },
     {
