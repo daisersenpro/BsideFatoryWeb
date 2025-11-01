@@ -1,6 +1,8 @@
 import { Calendar, MapPin, Clock, Ticket, ArrowRight } from 'lucide-react';
 
 const Events = () => {
+  const placeholderImage = 'https://i.postimg.cc/D0ftG3JL/Pronto.png';
+
   const events = [
     {
       title: 'Bside Factory 28 Aniversario',
@@ -11,7 +13,7 @@ const Events = () => {
       description: 'Celebración especial con todos los artistas del sello. Una noche histórica de Hip Hop chileno.',
       price: '$8.000',
       status: 'Próximamente',
-      image: 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: placeholderImage,
     },
     {
       title: 'Cypher Battle Season 2025',
@@ -22,7 +24,7 @@ const Events = () => {
       description: 'Competencia de freestyle con los mejores exponentes del rap underground nacional.',
       price: '$5.000',
       status: 'Entradas Disponibles',
-      image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: placeholderImage,
     },
     {
       title: 'Tour Nacional Underground',
@@ -33,7 +35,7 @@ const Events = () => {
       description: 'Gira nacional presentando lo mejor del catálogo de Bside Factory. 12 ciudades, un solo movimiento.',
       price: 'Desde $6.000',
       status: 'Preventas Abiertas',
-      image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: placeholderImage,
     },
   ];
 

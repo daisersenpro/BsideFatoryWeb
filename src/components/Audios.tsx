@@ -1,34 +1,34 @@
-import { Music, Play, ArrowRight } from 'lucide-react';
+import { Music, ArrowRight } from 'lucide-react';
 
 const Audios = () => {
   const tracks = [
     {
-      title: 'Templo Lado B - Underground',
-      artist: 'Templo Lado B',
-      year: '1997',
-      description: 'Primer sencillo oficial del grupo que marcó un antes y después en la escena del Hip Hop de La Florida.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'Mamacita',
+      artist: 'SenPro',
+      year: 'Single',
+      description: 'Single oficial - SenPro',
+      youtubeId: 'DpHmVAPZ--k',
     },
     {
-      title: 'Calles de Santiago',
-      artist: 'Mario Corleone',
-      year: '1998',
-      description: 'Producción emblemática que captura la esencia del rap chileno de los 90s con beats del Boss DR-5.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'En Tranzas',
+      artist: 'Los Cazadores',
+      year: 'Single',
+      description: 'Single de Los Cazadores',
+      youtubeId: 'qGU2lo2Gvhw',
     },
     {
-      title: 'Escuadra en Acción',
-      artist: 'Escuadra Copihuana',
-      year: '1999',
-      description: 'Colaboración épica que reunió a los mejores MCs de Santiago bajo la producción de Bside Factory.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'Tanke Skull Ft Cristian G "Vieja Escuela"',
+      artist: 'Tanke Skull',
+      year: 'Single',
+      description: 'Tanke Skull Ft Cristian G - Vieja Escuela',
+      youtubeId: '0-affUoEnk8',
     },
     {
-      title: 'Flow Nacional',
-      artist: 'Musicario & Mr. Cleri',
-      year: '2000',
-      description: 'Fusión perfecta de letras conscientes y beats innovadores que definieron el sonido del sello.',
-      youtubeId: 'dQw4w9WgXcQ',
+      title: 'valientino - nadie molesta - prod. mario corleone',
+      artist: 'Valientino',
+      year: 'Single',
+      description: 'valientino - nadie molesta (prod. Mario Corleone)',
+      youtubeId: 'qnWeSYtCirM',
     },
   ];
 
