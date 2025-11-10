@@ -17,11 +17,11 @@ const Audios = () => {
       youtubeId: 'qGU2lo2Gvhw',
     },
     {
-      title: 'Tanke Skull Ft Cristian G "Vieja Escuela"',
-      artist: 'Tanke Skull',
+      title: 'ESTO TIENE QUE ACABAR',
+      artist: 'Los Cazadores',
       year: 'Single',
-      description: 'Tanke Skull Ft Cristian G - Vieja Escuela',
-      youtubeId: '0-affUoEnk8',
+      description: 'Los Cazadores - Esto Tiene Que Acabar',
+      youtubeId: 'G7Vl0AnCjKI',
     },
     {
       title: 'valientino - nadie molesta - prod. mario corleone',
@@ -41,8 +41,6 @@ const Audios = () => {
         }}>
           AUDIOS
         </h2>
-        <p className="text-xl text-gray-600 text-center mb-16 italic">Nuestra discografía más destacada</p>
-
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {tracks.map((track, index) => (
             <div
