@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Artists from './components/Artists';
+import Services from './components/Services';
 import Discography from './components/Discography';
 import Audios from './components/Audios';
 import Videos from './components/Videos';
@@ -49,6 +50,7 @@ function App() {
       <Hero isLoaded={isLoaded} />
       <About />
       <Artists />
+  <Services />
       <Discography onNavigate={navigate} />
       <Audios />
       <Videos />

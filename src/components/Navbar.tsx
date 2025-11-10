@@ -23,6 +23,7 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
     { name: 'INICIO', href: '#inicio' },
     { name: 'SELLO', href: '#sello' },
     { name: 'ARTISTAS', href: '#artistas' },
+    { name: 'SERVICIOS', href: '#servicios' },
     { name: 'DISCOGRAFÍA', href: '#discografia' },
     { name: 'AUDIOS', href: '#audios' },
     { name: 'VIDEOS', href: '#videos' },

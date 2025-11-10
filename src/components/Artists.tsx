@@ -75,13 +75,12 @@ const Artists = () => {
   return (
     <section id="artistas" className="py-20 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-black text-red-600 italic mb-4 text-center" style={{
+        <h2 className="text-5xl md:text-6xl font-black text-red-600 italic mb-8 text-center" style={{
           WebkitTextStroke: '2px white',
           paintOrder: 'stroke fill',
         }}>
-          NUESTROS ARTISTAS
+          Artistas
         </h2>
-        <p className="text-xl text-sky-400 text-center mb-16 italic">La voz del Hip Hop chileno</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {artists.slice(0, 3).map((artist, index) => (
