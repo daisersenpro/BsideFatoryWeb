@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Facebook, Instagram, Youtube, Music, Twitter } from 'lucide-react';
 
 interface HeroProps {
   isLoaded: boolean;
@@ -32,6 +32,7 @@ const Hero = ({ isLoaded }: HeroProps) => {
             className="w-full max-w-[98vw] mx-auto mb-12 drop-shadow-2xl animate-pulse hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer transform"
           />
         </div>
+        {/* Social icons: placed BELOW the hero text (red ring + white inner circle with red icon) */}
 
         <div
           className={`transform transition-all duration-1000 delay-500 ${
@@ -50,7 +51,50 @@ const Hero = ({ isLoaded }: HeroProps) => {
           }}>
             DESDE SANTIAGO DE CHILE
           </p>
-        </div>
+          <div className="mt-6 flex items-center justify-center gap-6">
+            {/** Each icon: red outer circle, white inner circle with red icon to match the attached design */}
+            <a href="#" aria-label="Facebook" title="Facebook" className="transform transition-all duration-300 hover:scale-110">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                  <Facebook size={18} className="text-white" />
+                </div>
+              </div>
+            </a>
+
+            <a href="#" aria-label="Instagram" title="Instagram" className="transform transition-all duration-300 hover:scale-110">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                  <Instagram size={18} className="text-white" />
+                </div>
+              </div>
+            </a>
+
+            <a href="#" aria-label="YouTube" title="YouTube" className="transform transition-all duration-300 hover:scale-110">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                  <Youtube size={18} className="text-white" />
+                </div>
+              </div>
+            </a>
+
+            <a href="#" aria-label="Spotify" title="Spotify" className="transform transition-all duration-300 hover:scale-110">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                  <Music size={18} className="text-white" />
+                </div>
+              </div>
+            </a>
+
+            <a href="#" aria-label="Twitter" title="Twitter" className="transform transition-all duration-300 hover:scale-110">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                  <Twitter size={18} className="text-white" />
+                </div>
+              </div>
+            </a>
+          </div>
+      </div>
+
       </div>
 
       <a
