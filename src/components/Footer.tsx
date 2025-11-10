@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube, Music, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Music, X } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -114,41 +114,42 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex gap-6">
-              <a
-                href="#"
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transform hover:scale-110 transition-all duration-300 shadow-lg"
-                aria-label="Facebook"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transform hover:scale-110 transition-all duration-300 shadow-lg"
-                aria-label="Instagram"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transform hover:scale-110 transition-all duration-300 shadow-lg"
-                aria-label="YouTube"
-              >
-                <Youtube size={24} />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transform hover:scale-110 transition-all duration-300 shadow-lg"
-                aria-label="Spotify"
-              >
-                <Music size={24} />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transform hover:scale-110 transition-all duration-300 shadow-lg"
-                aria-label="Twitter"
-              >
-                <Twitter size={24} />
-              </a>
+                {/** Match hero style: outer red circle with inner red circle and white icon (smaller) */}
+                <a href="#" aria-label="Facebook" className="transform transition-all duration-300 hover:scale-110">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <Facebook size={18} className="text-white" />
+                    </div>
+                  </div>
+                </a>
+                <a href="#" aria-label="Instagram" className="transform transition-all duration-300 hover:scale-110">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <Instagram size={18} className="text-white" />
+                    </div>
+                  </div>
+                </a>
+                <a href="#" aria-label="YouTube" className="transform transition-all duration-300 hover:scale-110">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <Youtube size={18} className="text-white" />
+                    </div>
+                  </div>
+                </a>
+                <a href="#" aria-label="Spotify" className="transform transition-all duration-300 hover:scale-110">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <Music size={18} className="text-white" />
+                    </div>
+                  </div>
+                </a>
+                <a href="#" aria-label="X" className="transform transition-all duration-300 hover:scale-110">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <X size={18} className="text-white" />
+                    </div>
+                  </div>
+                </a>
             </div>
 
             <div className="flex gap-6 text-sm text-gray-400">
