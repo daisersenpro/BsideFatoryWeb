@@ -1,4 +1,5 @@
 import React from 'react';
+import { BookOpen, Music, Sliders } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '56962181799';
 
@@ -26,7 +27,12 @@ const Services: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-6">
           {/* Clases */}
-          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col">
+          <div className="group bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col items-stretch transform transition-transform duration-500 hover:scale-105 hover:-translate-y-3 hover:shadow-2xl">
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110">
+                <BookOpen size={26} className="text-white" />
+              </div>
+            </div>
             <h3 className="text-2xl font-bold text-sky-700 mb-3">Clases</h3>
             <p className="text-gray-700 mb-4 flex-1">
               Clases privadas y grupales de producción musical, mezcla y composición. Instructor con experiencia profesional en DAWs (Ableton, FL Studio, Pro Tools) y técnicas de producción hip hop y electrónica. Programas personalizados según nivel y objetivos.
@@ -42,7 +48,12 @@ const Services: React.FC = () => {
           </div>
 
           {/* Beats */}
-          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col">
+          <div className="group bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col items-stretch transform transition-transform duration-500 hover:scale-105 hover:-translate-y-3 hover:shadow-2xl">
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110">
+                <Music size={26} className="text-white" />
+              </div>
+            </div>
             <h3 className="text-2xl font-bold text-sky-700 mb-3">Beats</h3>
             <p className="text-gray-700 mb-4 flex-1">
               Producción y venta de beats originales (hip hop, trap, boom-bap, lo-fi). Entregas en stems y WAV de alta calidad, opciones de licencia exclusiva o no exclusiva, y servicios de personalización por encargo.
@@ -58,7 +69,12 @@ const Services: React.FC = () => {
           </div>
 
           {/* Mix & Master */}
-          <div className="bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col">
+          <div className="group bg-gradient-to-br from-sky-50 to-cyan-50 p-6 rounded-2xl shadow-lg flex flex-col items-stretch transform transition-transform duration-500 hover:scale-105 hover:-translate-y-3 hover:shadow-2xl">
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110">
+                <Sliders size={26} className="text-white" />
+              </div>
+            </div>
             <h3 className="text-2xl font-bold text-sky-700 mb-3">Mix & Master</h3>
             <p className="text-gray-700 mb-4 flex-1">
               Servicio profesional de mezcla y master con referencias del cliente. Procesado con herramientas analógicas y digitales, control de loudness y entrega en formatos listos para distribución. Revisiones incluidas según paquete.

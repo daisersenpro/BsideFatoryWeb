@@ -39,9 +39,7 @@ const Discography = ({ onNavigate }: DiscographyProps) => {
         }}>
           DISCOGRAFÍA
         </h2>
-        <p className="text-xl text-sky-400 text-center mb-16 italic">
-          28 años de historia musical documentada
-        </p>
+        {/* subtitle removed as requested */}
 
         <div className="relative mb-12" onMouseEnter={pause} onMouseLeave={resume}>
           <div className="overflow-hidden rounded-2xl border-2 border-sky-600 shadow-2xl">
@@ -63,6 +61,12 @@ const Discography = ({ onNavigate }: DiscographyProps) => {
                               <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
                               <div className="absolute top-3 right-3 bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-xs">{album.type}</div>
                               <div className="absolute bottom-3 left-3"><span className="bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-sm">{album.year}</span></div>
+                              {/* Show "Próximamente" overlay for all except the 1996 Templo Lado B mixtape */}
+                              {!(album.year === '1996' && album.title.toLowerCase().includes('templo lado b')) && (
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                  <span className="bg-black/60 text-white uppercase px-4 py-2 rounded font-bold text-sm">Próximamente</span>
+                                </div>
+                              )}
                             </div>
                             <div className="p-4">
                               <h3 className="text-sm font-bold text-white mb-1 group-hover:text-sky-400 transition-colors line-clamp-2">{album.title}</h3>

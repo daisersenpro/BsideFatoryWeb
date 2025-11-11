@@ -74,23 +74,23 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold text-sky-500 italic mb-4">SERVICIOS</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Producción Musical
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Producción Musical</a>
               </li>
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Grabación de Estudio
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Grabación de Estudio</a>
               </li>
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Mezcla y Mastering
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Mezcla y Mastering</a>
               </li>
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Distribución Digital
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Distribución Digital</a>
               </li>
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Gestión de Artistas
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Gestión de Artistas</a>
               </li>
-              <li className="hover:text-sky-500 transition-colors cursor-pointer">
-                Organización de Eventos
+              <li>
+                <a href="#servicios" className="hover:text-sky-500 transition-colors block">Organización de Eventos</a>
               </li>
             </ul>
           </div>

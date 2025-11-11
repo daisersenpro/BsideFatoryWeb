@@ -12,6 +12,9 @@ import Merch from './components/Merch';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DiscographyFull from './pages/DiscographyFull';
+import Bandas from './pages/Bandas';
+import Solistas from './pages/Solistas';
+import Colaboraciones from './pages/Colaboraciones';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -44,12 +47,42 @@ function App() {
     );
   }
 
+  if (route === '/bandas') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
+        <Navbar onNavigate={navigate} />
+        <Bandas />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (route === '/solistas') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
+        <Navbar onNavigate={navigate} />
+        <Solistas />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (route === '/colaboraciones') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
+        <Navbar onNavigate={navigate} />
+        <Colaboraciones />
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
       <Navbar onNavigate={navigate} />
       <Hero isLoaded={isLoaded} />
-      <About />
-      <Artists />
+  <About />
+  <Artists onNavigate={navigate} />
   <Services />
       <Discography onNavigate={navigate} />
       <Audios />
