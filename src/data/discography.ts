@@ -5,6 +5,7 @@ export const discography = [
     type: 'Mixtape',
     tracks: ['Rimas & Imaginas', 'La crypta más estricta', 'Calibre lado b', 'mi vida es un erial (rima Gustavo A. Bècquer)'],
     image: 'https://i.postimg.cc/kG42Zxm1/Tem-Plo-Lado-B-Mixtape.jpg',
+    featured: true,
   },
   {
     year: '1997',

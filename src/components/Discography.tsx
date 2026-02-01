@@ -55,8 +55,13 @@ const Discography = ({ onNavigate }: DiscographyProps) => {
                     <div key={p} className="w-full" style={{ width: `${100 / totalPages}%` }}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
                         {pageItems.map((album, i) => (
-                          <div key={i} className="group bg-sky-800 rounded-xl overflow-hidden shadow-lg border border-sky-600">
+                          <div key={i} className="group bg-sky-800 rounded-xl overflow-hidden shadow-lg border border-sky-600 relative">
                             <div className="relative h-48 overflow-hidden">
+                              {album.featured && (
+                                <div className="absolute top-2 right-2 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-bounce">
+                                  DISPONIBLE PRONTO
+                                </div>
+                              )}
                               <img src={album.image} alt={album.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                               <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
                               <div className="absolute top-3 right-3 bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-xs">{album.type}</div>
