@@ -1,6 +1,7 @@
-import { Play, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Play } from 'lucide-react';
 
-const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
+const VideosFull = () => {
   const videos = [
     {
       title: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
@@ -28,23 +29,24 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
     },
   ];
 
-  return (
-    <section id="videos" className="py-20 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-black text-red-600 italic mb-4 text-center" style={{
-          WebkitTextStroke: '2px white',
-          paintOrder: 'stroke fill',
-        }}>
-          VIDEOS
-        </h2>
-        <p className="text-xl text-sky-400 text-center mb-16 italic">
-          Revive los mejores momentos en video
-        </p>
+  const PAGE_SIZE = 9;
+  const [page, setPage] = useState(1);
+  const total = videos.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {videos.slice(0, 3).map((video, index) => (
+  const start = (page - 1) * PAGE_SIZE;
+  const pageItems = videos.slice(start, start + PAGE_SIZE);
+
+  return (
+    <section className="py-12 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-black text-white mb-6">Todos los Videos</h1>
+        <p className="text-sky-300 mb-8">Disfruta de toda la colección de videos del sello Bside Factory.</p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pageItems.map((video, i) => (
             <div
-              key={index}
+              key={i}
               className="group bg-sky-800 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-sky-600"
             >
               <div className="relative h-48 bg-gradient-to-br from-sky-900 to-blue-900 overflow-hidden">
@@ -74,37 +76,14 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 p-8 rounded-3xl shadow-2xl mb-8 text-center">
-          <h3 className="text-3xl font-black text-white mb-4 italic">
-            SUSCRÍBETE A NUESTRO CANAL
-          </h3>
-          <p className="text-white/90 mb-6 text-lg">
-            No te pierdas ningún lanzamiento, batalla o documental exclusivo
-          </p>
-          <a
-            href="https://www.youtube.com/@Bside.factory"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-sky-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-110 transition-all duration-300 shadow-xl"
-          >
-            <Play size={24} fill="currentColor" />
-            Ver en YouTube
-          </a>
-        </div>
-
-        <div className="text-center">
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); onNavigate?.('/videos-completos'); }}
-            className="inline-flex items-center gap-2 bg-sky-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-sky-700 transform hover:scale-110 transition-all duration-300 shadow-xl"
-          >
-            Ver Todos los Videos
-            <ArrowRight size={24} />
-          </a>
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <button disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))} className="px-4 py-2 bg-sky-600 text-white rounded disabled:opacity-50">Anterior</button>
+          <div className="text-white">Página {page} de {totalPages}</div>
+          <button disabled={page >= totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))} className="px-4 py-2 bg-sky-600 text-white rounded disabled:opacity-50">Siguiente</button>
         </div>
       </div>
     </section>
   );
 };
 
-export default Videos;
+export default VideosFull;

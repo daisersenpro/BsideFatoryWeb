@@ -12,6 +12,7 @@ import Merch from './components/Merch';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DiscographyFull from './pages/DiscographyFull';
+import VideosFull from './pages/VideosFull';
 import Bandas from './pages/Bandas';
 import Solistas from './pages/Solistas';
 import Colaboraciones from './pages/Colaboraciones';
@@ -42,6 +43,16 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
         <Navbar onNavigate={navigate} />
         <DiscographyFull />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (route === '/videos-completos') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-100/20 via-sky-200 to-blue-300">
+        <Navbar onNavigate={navigate} />
+        <VideosFull />
         <Footer />
       </div>
     );
@@ -86,7 +97,7 @@ function App() {
   <Services />
       <Discography onNavigate={navigate} />
       <Audios />
-      <Videos />
+      <Videos onNavigate={navigate} />
       <Events />
       <Merch />
       <Contact />
