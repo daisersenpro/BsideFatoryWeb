@@ -32,6 +32,32 @@ const Hero = ({ isLoaded }: HeroProps) => {
             className="w-full max-w-[98vw] mx-auto mb-12 drop-shadow-2xl animate-pulse hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer transform"
           />
         </div>
+
+        {/* Featured Release Banner */}
+        <div
+          className={`transform transition-all duration-1000 delay-300 mb-8 ${
+            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <a href="#discografia" className="inline-block group">
+            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-6 shadow-2xl border-2 border-red-500 hover:from-red-700 hover:to-red-800 transition-all duration-300 hover:scale-105">
+              <div className="flex items-center justify-center gap-6">
+                <img 
+                  src="https://i.postimg.cc/kG42Zxm1/Tem-Plo-Lado-B-Mixtape.jpg" 
+                  alt="1996 TEMPLO LADO B MIXTAPE" 
+                  className="w-24 h-24 rounded-lg shadow-lg"
+                />
+                <div className="text-left">
+                  <p className="text-white text-sm font-bold mb-1">🎵 NUEVO LANZAMIENTO</p>
+                  <h3 className="text-white text-xl md:text-2xl font-black italic">1996 TEMPLO LADO B MIXTAPE</h3>
+                  <p className="text-red-100 text-sm mt-2">Disponible muy pronto</p>
+                </div>
+                <ChevronDown size={24} className="text-white group-hover:translate-y-1 transition-transform" />
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Social icons: placed BELOW the hero text (red ring + white inner circle with red icon) */}
 
         <div
