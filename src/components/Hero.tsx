@@ -39,7 +39,12 @@ const Hero = ({ isLoaded }: HeroProps) => {
             isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <a href="#discografia" className="inline-block group">
+          <a
+            href="https://www.youtube.com/watch?v=_QY714NgfOc&list=RD_QY714NgfOc&start_radio=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block group"
+          >
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-6 shadow-2xl border-2 border-red-500 hover:from-red-700 hover:to-red-800 transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center gap-6">
                 <img 
@@ -48,9 +53,9 @@ const Hero = ({ isLoaded }: HeroProps) => {
                   className="w-24 h-24 rounded-lg shadow-lg"
                 />
                 <div className="text-left">
-                  <p className="text-white text-sm font-bold mb-1">🎵 NUEVO LANZAMIENTO</p>
+                  <p className="text-white text-sm font-bold mb-1">🎵 DISPONIBLE</p>
                   <h3 className="text-white text-xl md:text-2xl font-black italic">1996 TEMPLO LADO B MIXTAPE</h3>
-                  <p className="text-red-100 text-sm mt-2">Disponible muy pronto</p>
+                  <p className="text-red-100 text-sm mt-2">Ver en YouTube</p>
                 </div>
                 <ChevronDown size={24} className="text-white group-hover:translate-y-1 transition-transform" />
               </div>
@@ -95,7 +100,14 @@ const Hero = ({ isLoaded }: HeroProps) => {
               </div>
             </a>
 
-            <a href="#" aria-label="YouTube" title="YouTube" className="transform transition-all duration-300 hover:scale-110">
+            <a
+              href="https://www.youtube.com/@Bside.factory"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              title="YouTube"
+              className="transform transition-all duration-300 hover:scale-110"
+            >
               <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                   <Youtube size={20} className="text-white" />
