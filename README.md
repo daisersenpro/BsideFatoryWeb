@@ -30,4 +30,4 @@ Scripts útiles (en `package.json`):
 - `preview` — sirve la build en modo preview
 - `typecheck` — ejecuta `tsc --noEmit`
 
-Licencia: (añade la tuya si procede)
+Licencia: (SenPro Informatica TI Desarrollo)
