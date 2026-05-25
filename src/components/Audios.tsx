@@ -3,11 +3,11 @@ import { Music, ArrowRight } from 'lucide-react';
 const Audios = () => {
   const tracks = [
     {
-      title: 'Mamacita',
+      title: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
       artist: 'SenPro',
       year: 'Single',
-      description: 'Single oficial - SenPro',
-      youtubeId: 'DpHmVAPZ--k',
+      description: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
+      youtubeId: '_QY714NgfOc',
     },
     {
       title: 'En Tranzas',
