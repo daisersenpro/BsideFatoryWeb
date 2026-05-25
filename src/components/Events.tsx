@@ -1,9 +1,20 @@
 import { Calendar, MapPin, Clock, Ticket, ArrowRight } from 'lucide-react';
 
-const Events = () => {
-  const placeholderImage = 'https://i.postimg.cc/D0ftG3JL/Pronto.png';
+type EventItem = {
+  title: string;
+  date: string;
+  time: string;
+  venue: string;
+  address: string;
+  description: string;
+  price: string;
+  image: string;
+  status?: string;
+  featured?: boolean;
+};
 
-  const events = [
+const Events = () => {
+  const events: EventItem[] = [
     {
       title: 'Bside Factory 28 Aniversario',
       date: '15 Diciembre 2024',
