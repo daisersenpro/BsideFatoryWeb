@@ -51,6 +51,8 @@ const products = [
                 <img
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4 bg-sky-600 text-white px-3 py-1 rounded-full font-bold text-sm shadow-lg">

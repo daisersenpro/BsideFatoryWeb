@@ -62,7 +62,7 @@ const Discography = ({ onNavigate }: DiscographyProps) => {
                                   DISPONIBLE PRONTO
                                 </div>
                               )}
-                              <img src={album.image} alt={album.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                              <img src={album.image} alt={album.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                               <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
                               <div className="absolute top-3 right-3 bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-xs">{album.type}</div>
                               <div className="absolute bottom-3 left-3"><span className="bg-sky-600 text-white px-2 py-1 rounded-full font-bold text-sm">{album.year}</span></div>

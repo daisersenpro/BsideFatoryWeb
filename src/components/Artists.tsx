@@ -54,6 +54,8 @@ const Artists = ({ onNavigate }: ArtistsProps) => {
                 <img
                   src={card.image}
                   alt={card.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>

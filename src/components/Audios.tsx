@@ -53,6 +53,7 @@ const Audios = () => {
                   src={`https://www.youtube.com/embed/${track.youtubeId}`}
                   title={track.title}
                   frameBorder="0"
+                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
