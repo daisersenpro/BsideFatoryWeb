@@ -55,41 +55,35 @@ const Artists = ({ onNavigate }: ArtistsProps) => {
             >
               <div className="relative h-64 overflow-hidden">
                 {card.title === 'Bandas' ? (
-                  <a href="https://ibb.co/Zp0NsSt5" target="_blank" rel="noopener noreferrer">
-                    <img
-                      src="https://i.ibb.co/G4qFw9By/1.jpg"
-                      alt="Templo Lado B"
-                      loading="lazy"
-                      decoding="async"
-                      width="640"
-                      height="360"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </a>
+                  <img
+                    src="https://i.ibb.co/G4qFw9By/1.jpg"
+                    alt="Templo Lado B"
+                    loading="lazy"
+                    decoding="async"
+                    width="640"
+                    height="360"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
                 ) : card.title === 'Solistas' ? (
-                  <a href="https://ibb.co/ynnhrYqJ" target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={soloistsImage}
-                      alt="Solistas"
-                      loading="lazy"
-                      decoding="async"
-                      width="640"
-                      height="360"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </a>
+                  <img
+                    src={soloistsImage}
+                    alt="Solistas"
+                    loading="lazy"
+                    decoding="async"
+                    width="640"
+                    height="360"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
                 ) : card.title === 'Colaboraciones' ? (
-                  <a href="https://ibb.co/MyhG9tWz" target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={collaborationsImage}
-                      alt="Colaboraciones"
-                      loading="lazy"
-                      decoding="async"
-                      width="640"
-                      height="360"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </a>
+                  <img
+                    src={collaborationsImage}
+                    alt="Colaboraciones"
+                    loading="lazy"
+                    decoding="async"
+                    width="640"
+                    height="360"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
                 ) : (
                   <img
                     src={card.image}
