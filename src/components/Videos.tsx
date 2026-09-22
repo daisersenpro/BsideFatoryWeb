@@ -1,4 +1,5 @@
-import { Play, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Play, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   const videos = [
@@ -6,6 +7,12 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
       title: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
       description: 'Video lírico oficial del nuevo lanzamiento disponible en YouTube.',
       youtubeId: '_QY714NgfOc',
+      views: 'Nuevo',
+    },
+    {
+      title: 'Negro Kal Ven a bailar ft Dilo Prod Los Cazadores',
+      description: 'Video disponible en el canal oficial de Bside Factory.',
+      youtubeId: 'Dw8UTtY5zmM',
       views: 'Nuevo',
     },
     {
@@ -27,6 +34,21 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
       views: '67K',
     },
   ];
+  const videosPerPage = 3;
+  const totalPages = Math.ceil(videos.length / videosPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
+  const visibleVideos = videos.slice(
+    currentPage * videosPerPage,
+    currentPage * videosPerPage + videosPerPage,
+  );
+
+  const showPreviousPage = () => {
+    setCurrentPage((page) => (page === 0 ? totalPages - 1 : page - 1));
+  };
+
+  const showNextPage = () => {
+    setCurrentPage((page) => (page === totalPages - 1 ? 0 : page + 1));
+  };
 
   return (
     <section id="videos" className="py-20 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900">
@@ -41,10 +63,20 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
           Revive los mejores momentos en video
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {videos.slice(0, 3).map((video, index) => (
+        <div className="relative mb-12 px-12 md:px-14">
+          <button
+            type="button"
+            onClick={showPreviousPage}
+            aria-label="Ver videos anteriores"
+            className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-sky-600 text-white shadow-lg transition-colors hover:bg-sky-500"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {visibleVideos.map((video) => (
             <div
-              key={index}
+              key={video.youtubeId}
               className="group bg-sky-800 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-sky-600"
             >
               <div className="relative h-48 bg-gradient-to-br from-sky-900 to-blue-900 overflow-hidden">
@@ -73,6 +105,16 @@ const Videos = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
               </div>
             </div>
           ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={showNextPage}
+            aria-label="Ver videos siguientes"
+            className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-sky-600 text-white shadow-lg transition-colors hover:bg-sky-500"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         <div className="bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 p-8 rounded-3xl shadow-2xl mb-8 text-center">

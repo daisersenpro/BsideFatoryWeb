@@ -10,6 +10,12 @@ const VideosFull = () => {
       views: 'Nuevo',
     },
     {
+      title: 'Negro Kal Ven a bailar ft Dilo Prod Los Cazadores',
+      description: 'Video disponible en el canal oficial de Bside Factory.',
+      youtubeId: 'Dw8UTtY5zmM',
+      views: 'Nuevo',
+    },
+    {
       title: 'GANGSTA FAMILIA - ESTILO PANDILLERO',
       description: 'Video oficial: Estilo Pandillero - GANGSTA FAMILIA.',
       youtubeId: 'rQfctPAyX4c',

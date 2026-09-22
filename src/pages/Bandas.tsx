@@ -8,7 +8,17 @@ const Bandas: React.FC = () => {
         <p className="mb-6 text-gray-700">Listado de bandas del sello. Aquí mostraremos cada banda con su biografía, lanzamientos y próximos proyectos. (Próximamente contenido completo)</p>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-2xl shadow">Próximamente: Templo Lado B</div>
+          <div className="bg-white rounded-2xl shadow overflow-hidden">
+            <a href="https://ibb.co/Zp0NsSt5" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://i.ibb.co/G4qFw9By/1.jpg"
+                alt="Templo Lado B"
+                loading="lazy"
+                className="w-full h-64 object-cover"
+              />
+            </a>
+            <p className="p-6">Próximamente: Templo Lado B</p>
+          </div>
           <div className="bg-white p-6 rounded-2xl shadow">Próximamente: Escuadra Copihuana</div>
         </div>
       </div>

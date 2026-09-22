@@ -4,7 +4,7 @@ const Audios = () => {
   const tracks = [
     {
       title: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
-      artist: 'SenPro',
+      artist: 'Templo Lado B',
       year: 'Single',
       description: '1996 TEMPLO LADO B MIXTAPE - Video Lyric',
       youtubeId: '_QY714NgfOc',

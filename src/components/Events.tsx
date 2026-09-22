@@ -1,4 +1,5 @@
-import { Calendar, MapPin, Clock, Ticket, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar, MapPin, Clock, Ticket, ArrowRight, X } from 'lucide-react';
 
 type EventItem = {
   title: string;
@@ -14,6 +15,8 @@ type EventItem = {
 };
 
 const Events = () => {
+  const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
+
   const events: EventItem[] = [
     {
       title: 'Bside Factory 28 Aniversario',
@@ -24,7 +27,7 @@ const Events = () => {
       description: 'Celebración especial con todos los artistas del sello. Una noche histórica de Hip Hop chileno.',
       price: '$8.000',
       featured: true,
-      image: 'https://i.postimg.cc/B6n2gVp5/1.png',
+      image: 'https://i.ibb.co/xK4zyXyH/6.jpg',
     },
     {
       title: 'Cypher Battle Season 2025',
@@ -34,7 +37,7 @@ const Events = () => {
       address: 'Calle General Velásquez 1542, Santiago Centro',
       description: 'Competencia de freestyle con los mejores exponentes del rap underground nacional.',
       price: '$5.000',
-      image: 'https://i.postimg.cc/m2KY3jKK/2.png',
+      image: 'https://i.ibb.co/Qjtmxyhb/5.jpg',
     },
     {
       title: 'Tour Nacional Underground',
@@ -44,7 +47,7 @@ const Events = () => {
       address: 'Santiago, Valparaíso, Concepción, Temuco',
       description: 'Gira nacional presentando lo mejor del catálogo de Bside Factory. 12 ciudades, un solo movimiento.',
       price: 'Desde $6.000',
-      image: 'https://i.postimg.cc/KzY3h36h/3.png',
+      image: 'https://i.ibb.co/B2dPs7mj/4.jpg',
     },
   ];
 
@@ -68,14 +71,29 @@ const Events = () => {
               className="group bg-gradient-to-r from-sky-50 to-cyan-50 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transform hover:scale-102 transition-all duration-300 border-2 border-sky-200"
             >
               <div className={`md:flex ${event.featured ? 'items-stretch' : ''}`}>
-                <div className={`relative overflow-hidden ${event.featured ? 'md:w-1/3 h-64 md:h-auto' : 'md:w-1/3 h-64 md:h-auto'}`}>
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="relative overflow-hidden md:w-1/3 h-64 md:h-[360px]">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedEvent(event)}
+                    aria-label={`Ver flyer completo de ${event.title}`}
+                    className="block w-full h-full cursor-zoom-in"
+                  >
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      loading="lazy"
+                      decoding="async"
+                      width="640"
+                      height="360"
+                      onError={(imageEvent) => {
+                        if (event.title === 'Cypher Battle Season 2025' && !imageEvent.currentTarget.dataset.fallbackApplied) {
+                          imageEvent.currentTarget.dataset.fallbackApplied = 'true';
+                          imageEvent.currentTarget.src = 'https://i.ibb.co/M5QNJFK2/5.jpg';
+                        }
+                      }}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </button>
                   {!event.featured && event.status ? (
                     <div className="absolute top-4 right-4 bg-sky-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
                       {event.status}
@@ -127,6 +145,32 @@ const Events = () => {
             </div>
           ))}
         </div>
+
+        {selectedEvent ? (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Flyer completo de ${selectedEvent.title}`}
+            onClick={() => setSelectedEvent(null)}
+          >
+            <div className="relative max-h-[90vh] max-w-5xl" onClick={(event) => event.stopPropagation()}>
+              <button
+                type="button"
+                onClick={() => setSelectedEvent(null)}
+                aria-label="Cerrar flyer"
+                className="absolute -right-3 -top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:bg-gray-200"
+              >
+                <X size={24} />
+              </button>
+              <img
+                src={selectedEvent.image}
+                alt={selectedEvent.title}
+                className="max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        ) : null}
 
         <div className="bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500 p-1 rounded-3xl shadow-2xl mb-8">
           <div className="bg-white p-8 rounded-3xl text-center">

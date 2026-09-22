@@ -120,14 +120,26 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex gap-6">
                 {/** Match hero style: outer red circle with inner red circle and white icon (smaller) */}
-                <a href="#" aria-label="Facebook" className="transform transition-all duration-300 hover:scale-110">
+                <a
+                  href="https://www.facebook.com/bsidefactory.original?locale=es_LA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="transform transition-all duration-300 hover:scale-110"
+                >
                   <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
                     <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
                       <Facebook size={18} className="text-white" />
                     </div>
                   </div>
                 </a>
-                <a href="#" aria-label="Instagram" className="transform transition-all duration-300 hover:scale-110">
+                <a
+                  href="https://www.instagram.com/bside.factory96/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="transform transition-all duration-300 hover:scale-110"
+                >
                   <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
                     <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
                       <Instagram size={18} className="text-white" />

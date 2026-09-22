@@ -84,7 +84,14 @@ const Hero = ({ isLoaded }: HeroProps) => {
           </p>
           <div className="mt-6 flex items-center justify-center gap-6">
             {/** Each icon: red outer circle, white inner circle with red icon to match the attached design */}
-            <a href="#" aria-label="Facebook" title="Facebook" className="transform transition-all duration-300 hover:scale-110">
+            <a
+              href="https://www.facebook.com/bsidefactory.original?locale=es_LA"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              title="Facebook"
+              className="transform transition-all duration-300 hover:scale-110"
+            >
               <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                   <Facebook size={20} className="text-white" />
@@ -92,7 +99,14 @@ const Hero = ({ isLoaded }: HeroProps) => {
               </div>
             </a>
 
-            <a href="#" aria-label="Instagram" title="Instagram" className="transform transition-all duration-300 hover:scale-110">
+            <a
+              href="https://www.instagram.com/bside.factory96/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              className="transform transition-all duration-300 hover:scale-110"
+            >
               <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                   <Instagram size={20} className="text-white" />

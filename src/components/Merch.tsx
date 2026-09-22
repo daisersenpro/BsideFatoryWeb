@@ -1,4 +1,5 @@
-import { MessageSquare, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { MessageSquare, ArrowRight, X } from 'lucide-react';
 
 const Merch = () => {
 const products = [
@@ -28,6 +29,11 @@ const products = [
   },
 ];
 
+const [selectedProduct, setSelectedProduct] = useState<typeof products[number] | null>(null);
+const [selectedOptions, setSelectedOptions] = useState<Record<string, { color?: string; size?: string }>>({});
+
+const getSelectedOptions = (productName: string) => selectedOptions[productName] ?? {};
+
   return (
     <section id="merch" className="py-20 px-4 bg-gradient-to-br from-sky-900 via-cyan-900 to-blue-900">
       <div className="max-w-7xl mx-auto">
@@ -48,13 +54,20 @@ const products = [
               className="group bg-sky-800 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-sky-600"
             >
               <div className="relative h-72 overflow-hidden bg-blue-700">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                <button
+                  type="button"
+                  onClick={() => setSelectedProduct(product)}
+                  aria-label={`Ver imagen completa de ${product.name}`}
+                  className="block w-full h-full cursor-zoom-in"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </button>
                 <div className="absolute top-4 right-4 bg-sky-600 text-white px-3 py-1 rounded-full font-bold text-sm shadow-lg">
                   {product.category}
                 </div>
@@ -69,12 +82,20 @@ const products = [
                   <p className="text-sm text-gray-400 mb-2">Colores disponibles:</p>
                   <div className="flex flex-wrap gap-2">
                     {product.colors.map((color, i) => (
-                      <span
+                      <button
+                        type="button"
                         key={i}
-                        className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full"
+                        onClick={() => setSelectedOptions((current) => ({
+                          ...current,
+                          [product.name]: {
+                            ...getSelectedOptions(product.name),
+                            color: getSelectedOptions(product.name).color === color ? undefined : color,
+                          },
+                        }))}
+                        className={`text-xs px-3 py-1 rounded-full transition-colors ${getSelectedOptions(product.name).color === color ? 'bg-sky-500 text-white ring-2 ring-white/70' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
                       >
                         {color}
-                      </span>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -83,19 +104,37 @@ const products = [
                   <p className="text-sm text-gray-400 mb-2">Tallas:</p>
                   <div className="flex flex-wrap gap-2">
                     {product.sizes.map((size, i) => (
-                      <span
+                      <button
+                        type="button"
                         key={i}
-                        className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full"
+                        disabled={product.sizes.length === 1}
+                        onClick={() => setSelectedOptions((current) => ({
+                          ...current,
+                          [product.name]: {
+                            ...getSelectedOptions(product.name),
+                            size: getSelectedOptions(product.name).size === size ? undefined : size,
+                          },
+                        }))}
+                        className={`text-xs px-3 py-1 rounded-full transition-colors ${getSelectedOptions(product.name).size === size ? 'bg-sky-500 text-white ring-2 ring-white/70' : 'bg-gray-700 text-gray-300'} ${product.sizes.length > 1 ? 'hover:bg-gray-600' : 'cursor-default opacity-80'}`}
                       >
                         {size}
-                      </span>
+                      </button>
                     ))}
                   </div>
                 </div>
 
                 <button 
                   onClick={() => {
-                    const whatsappMessage = `¡Hola! Me interesa el producto: *${product.name}*%0A%0A*Categoría:* ${product.category}%0A*Colores disponibles:* ${product.colors.join(', ')}%0A*Tallas:* ${product.sizes.join(', ')}%0A%0A¿Podrías darme más información sobre precios y disponibilidad?`;
+                    const options = getSelectedOptions(product.name);
+                    const colorMessage = options.color
+                      ? `*Color elegido:* ${options.color}`
+                      : `*Colores disponibles:* ${product.colors.join(', ')}`;
+                    const sizeMessage = product.sizes.length === 1
+                      ? '*Talla:* Única'
+                      : options.size
+                        ? `*Talla elegida:* ${options.size}`
+                        : `*Tallas disponibles:* ${product.sizes.join(', ')}`;
+                    const whatsappMessage = `¡Hola! Me interesa el producto: *${product.name}*%0A%0A*Categoría:* ${product.category}%0A${colorMessage}%0A${sizeMessage}%0A%0A¿Podrías darme más información sobre precios y disponibilidad?`;
                     window.open(`https://wa.me/56962181799?text=${whatsappMessage}`, '_blank');
                   }}
                   className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-colors flex items-center justify-center gap-2 shadow-lg"
@@ -107,6 +146,32 @@ const products = [
             </div>
           ))}
         </div>
+
+        {selectedProduct ? (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Imagen completa de ${selectedProduct.name}`}
+            onClick={() => setSelectedProduct(null)}
+          >
+            <div className="relative max-h-[90vh] max-w-5xl" onClick={(event) => event.stopPropagation()}>
+              <button
+                type="button"
+                onClick={() => setSelectedProduct(null)}
+                aria-label="Cerrar imagen"
+                className="absolute -right-3 -top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:bg-gray-200"
+              >
+                <X size={24} />
+              </button>
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+                className="max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        ) : null}
 
         <div className="bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 p-8 rounded-3xl shadow-2xl mb-8 text-center">
           <MessageSquare className="w-16 h-16 text-white mx-auto mb-4" />
