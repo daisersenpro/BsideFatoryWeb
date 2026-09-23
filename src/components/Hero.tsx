@@ -40,7 +40,7 @@ const Hero = ({ isLoaded }: HeroProps) => {
           }`}
         >
           <a
-            href="https://www.youtube.com/watch?v=_QY714NgfOc&list=RD_QY714NgfOc&start_radio=1"
+            href="https://youtu.be/Dw8UTtY5zmM?si=Zoom5HUF0KKvzqA0"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block group"
@@ -49,12 +49,12 @@ const Hero = ({ isLoaded }: HeroProps) => {
               <div className="flex items-center justify-center gap-6">
                 <img 
                   src="https://i.postimg.cc/kG42Zxm1/Tem-Plo-Lado-B-Mixtape.jpg" 
-                  alt="1996 TEMPLO LADO B MIXTAPE" 
+                  alt="Negro Kal Ven a bailar ft Dilo Prod Los Cazadores" 
                   className="w-24 h-24 rounded-lg shadow-lg"
                 />
                 <div className="text-left">
                   <p className="text-white text-sm font-bold mb-1">🎵 DISPONIBLE</p>
-                  <h3 className="text-white text-xl md:text-2xl font-black italic">1996 TEMPLO LADO B MIXTAPE</h3>
+                  <h3 className="text-white text-xl md:text-2xl font-black italic">Negro Kal Ven a bailar ft Dilo Prod Los Cazadores</h3>
                   <p className="text-red-100 text-sm mt-2">Ver en YouTube</p>
                 </div>
                 <ChevronDown size={24} className="text-white group-hover:translate-y-1 transition-transform" />
