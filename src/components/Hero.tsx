@@ -48,7 +48,7 @@ const Hero = ({ isLoaded }: HeroProps) => {
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-6 shadow-2xl border-2 border-red-500 hover:from-red-700 hover:to-red-800 transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center gap-6">
                 <img 
-                  src="https://i.postimg.cc/kG42Zxm1/Tem-Plo-Lado-B-Mixtape.jpg" 
+                  src="https://img.youtube.com/vi/Dw8UTtY5zmM/maxresdefault.jpg" 
                   alt="Negro Kal Ven a bailar ft Dilo Prod Los Cazadores" 
                   className="w-24 h-24 rounded-lg shadow-lg"
                 />
