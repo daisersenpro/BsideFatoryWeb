@@ -121,7 +121,7 @@ const Footer = () => {
             <div className="flex gap-6">
                 {/** Match hero style: outer red circle with inner red circle and white icon (smaller) */}
                 <a
-                  href="https://www.facebook.com/bsidefactory.original?locale=es_LA"
+                  href="https://www.facebook.com/profile.php?id=61591078893664&locale=es_LA"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"

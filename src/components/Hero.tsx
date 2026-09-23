@@ -85,7 +85,7 @@ const Hero = ({ isLoaded }: HeroProps) => {
           <div className="mt-6 flex items-center justify-center gap-6">
             {/** Each icon: red outer circle, white inner circle with red icon to match the attached design */}
             <a
-              href="https://www.facebook.com/bsidefactory.original?locale=es_LA"
+              href="https://www.facebook.com/profile.php?id=61591078893664&locale=es_LA"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
