@@ -188,7 +188,7 @@ const Footer = () => {
 
         <div className="text-center">
           <p className="text-gray-500 text-sm mb-2">
-            © 2024 Bside Factory. Todos los derechos reservados.
+            © {new Date().getFullYear()} Bside Factory. Todos los derechos reservados.
           </p>
           <p className="text-gray-600 text-xs italic mb-2">
             Desde 1996 produciendo el mejor Hip Hop chileno
