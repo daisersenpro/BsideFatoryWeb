@@ -196,7 +196,7 @@ const Footer = () => {
           <p className="text-gray-500 text-xs">
             Desarrollada por{' '}
             <a 
-              href="https://portafolio-anyelo-bustos-fullstack.netlify.app/" 
+              href="https://www.linkedin.com/in/anyelo-b-84ab65147/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-red-500 hover:text-red-400 transition-colors font-semibold"
